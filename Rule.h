@@ -12,7 +12,7 @@ public:
 	int ID();
 	int user_ID();
 	int user_Au();
-	vector<int> trigger_ID();
+	vector<string> trigger_ID();
 	vector<string> event();
 	vector<int> priority();
 	vector<int> envir_ID();
