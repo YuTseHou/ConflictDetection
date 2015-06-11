@@ -5,20 +5,10 @@
 using namespace std;
 
 Rule::Rule() {
-	_ID = 0;
-	U._user_ID = -1;
-	U._user_Au = -1;
-	T._trigger_ID.push_back(1);
-	T._event.push_back("");
-	T._priority.push_back(-1);
-	E._envir_ID.push_back(-1);
-	E._pre_s.push_back("");
-	E._next_s.push_back("");
-	A._actuator_ID.push_back(-1);
-	A._action.push_back("");
+	_ID = -1;
 }
 
-Rule::Rule(int ID, int user_ID, int  user_Au, vector<int> trigger_ID, vector<string> event, vector<int> priority, vector<int> envir_ID, vector<string> pre_s, vector<string> next_s, vector<int> actuator_ID, vector<string> action) {
+Rule::Rule(int ID, int user_ID, int  user_Au, vector<string> trigger_ID, vector<Status> event, vector<int> priority, vector<string> envir_ID, vector<Status> pre_s, vector<Status> next_s, vector<string> actuator_ID, vector<Status> action) {
 	_ID = ID;
 	U._user_ID = user_ID;
 	U._user_Au = user_Au;
@@ -47,11 +37,11 @@ int Rule::user_Au() {
 	return U._user_Au;
 }
 
-vector<int> Rule::trigger_ID() {
+vector<string> Rule::trigger_ID() {
 	return T._trigger_ID;
 }
 
-vector<string> Rule::event() {
+vector<Status> Rule::event() {
 	return T._event;
 }
 
@@ -59,29 +49,29 @@ vector<int> Rule::priority() {
 	return T._priority;
 }
 
-vector<int> Rule::envir_ID() {
+vector<string> Rule::envir_ID() {
 	return E._envir_ID;
 }
 
-vector<string> Rule::pre_s() {
+vector<Status> Rule::pre_s() {
 	return E._pre_s;
 }
 
-vector<string> Rule::next_s() {
+vector<Status> Rule::next_s() {
 	return E._next_s;
 }
 
-vector<int> Rule::actuator_ID() {
+vector<string> Rule::actuator_ID() {
 	return A._actuator_ID;
 }
 
-vector<string> Rule::action() {
+vector<Status> Rule::action() {
 	return A._action;
 }
 
 void Rule::putIntoDependenceRules(int ID) {
-	_DependenceRules.push_back(ID);
+	_dependenceRules.push_back(ID);
 }
-vector<int> Rule::DependenceRules() {
-	return _DependenceRules;
+vector<int> Rule::dependenceRules() {
+	return _dependenceRules;
 }

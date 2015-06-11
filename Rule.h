@@ -1,28 +1,29 @@
 #include <string>
 #include <vector>
+#include "Status.h"
 
 using namespace std;
 
 class Rule {
 public:
 	Rule();
-	Rule(int, int, int, vector<int>, vector<string>, vector<int>, vector<int>, vector<string>, vector<string>, vector<int>, vector<string>);
+	Rule(int, int, int, vector<string>, vector<Status>, vector<int>, vector<string>, vector<Status>, vector<Status>, vector<string>, vector<Status>);
 	~Rule();
 
 	int ID();
 	int user_ID();
 	int user_Au();
 	vector<string> trigger_ID();
-	vector<string> event();
+	vector<Status> event();
 	vector<int> priority();
-	vector<int> envir_ID();
-	vector<string> pre_s();
-	vector<string> next_s();
-	vector<int> actuator_ID();
-	vector<string> action();
+	vector<string> envir_ID();
+	vector<Status> pre_s();
+	vector<Status> next_s();
+	vector<string> actuator_ID();
+	vector<Status> action();
 
 	void putIntoDependenceRules(int);
-	vector<int> DependenceRules();
+	vector<int> dependenceRules();
 
 private:
 	int _ID;
@@ -33,21 +34,21 @@ private:
 	} U;
 
 	struct trigger {
-		vector<int> _trigger_ID;
-		vector<string> _event;
+		vector<string> _trigger_ID;
+		vector<Status> _event;
 		vector<int> _priority;
 	} T;
 
 	struct envir {
-		vector<int> _envir_ID;
-		vector<string> _pre_s;
-		vector<string> _next_s;
+		vector<string> _envir_ID;
+		vector<Status> _pre_s;
+		vector<Status> _next_s;
 	} E;
 
 	struct actuator {
-		vector<int> _actuator_ID;
-		vector<string> _action;
+		vector<string> _actuator_ID;
+		vector<Status> _action;
 	} A;
 
-	vector<int> _DependenceRules;
+	vector<int> _dependenceRules;
 };
